@@ -3,9 +3,9 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
-  Activity, ArrowDown, ArrowLeft, ArrowRight, AudioLines, Check, ClipboardList,
+  Activity, ArrowDown, ArrowLeft, ArrowRight, Check, ClipboardList,
   FileHeart, Heart, HeartPulse, LockKeyhole, Mail, Microscope, Music2,
-  ScanHeart, Sparkles, Stethoscope, Volume2, VolumeX, X, Archive, Star, Gift
+  ScanHeart, Sparkles, VolumeX, X, Archive, Star, Gift
 } from "lucide-react";
 
 type Scene = "intro" | "tests" | "quiz" | "report" | "letter" | "ending";
@@ -153,7 +153,7 @@ export default function Home() {
         {scene === "tests" && (
           <motion.section key="tests" className="scene" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={transition}>
             <div className="section-heading">
-              <div><p className="micro-label">01 / INVESTIGATION</p><h2>Let's examine<br /><em>the evidence.</em></h2></div>
+              <div><p className="micro-label">01 / INVESTIGATION</p><h2>Let&apos;s examine<br /><em>the evidence.</em></h2></div>
               <div className="counter-card"><span>TESTS COMPLETED</span><b>{completed.length}<small> / 3</small></b><div className="mini-progress"><i style={{ width: `${completed.length / 3 * 100}%` }} /></div></div>
             </div>
             <p className="section-intro">Three small tests have been prepared for the examiner. Select each card to reveal its findings.</p>
@@ -243,7 +243,7 @@ export default function Home() {
               <motion.div className="confidential-note" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
                 <div><span className="micro-label">BONUS FILE / UNSEALED</span><h3>One confidential <em>note.</em></h3><p>All three tests are complete. A small note has been added to the file.</p></div>
                 <Button secondary onClick={() => setConfidentialOpen(!confidentialOpen)}>{confidentialOpen ? "Hide note" : "Unlock note"} <LockKeyhole size={15}/></Button>
-                <AnimatePresence>{confidentialOpen && <motion.p className="confidential-message" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}>Psst… this whole investigation was just a creative way to say that someone has been making life a little more interesting. That's all. 💗</motion.p>}</AnimatePresence>
+                <AnimatePresence>{confidentialOpen && <motion.p className="confidential-message" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}>Psst… this whole investigation was just a creative way to say that someone has been making life a little more interesting. That&apos;s all. 💗</motion.p>}</AnimatePresence>
               </motion.div>
             )}
 
@@ -258,8 +258,8 @@ export default function Home() {
         {scene === "quiz" && (
           <motion.section key="quiz" className="scene quiz-scene" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={transition}>
             <div className="quiz-top-icon"><ClipboardList size={25} /></div>
-            <p className="micro-label">02 / EXAMINER'S DESK</p>
-            <h2>Senior, what's<br /><em>your diagnosis?</em></h2>
+            <p className="micro-label">02 / EXAMINER&apos;S DESK</p>
+            <h2>Senior, what&apos;s<br /><em>your diagnosis?</em></h2>
             <p className="section-intro">After reviewing the evidence, choose the explanation that seems most convincing.</p>
             <div className="answer-list">
               {answers.map((item, i) => <button key={item.label} className={`answer-option ${answer === i ? "answer-selected" : ""}`} onClick={() => setAnswer(i)}>
@@ -272,7 +272,7 @@ export default function Home() {
               </motion.div>}
             </AnimatePresence>
             <div className="scene-actions"><button className="text-button" onClick={() => setScene("tests")}><ArrowLeft size={15} /> Review tests</button><Button onClick={() => setScene("report")} >View final report <ArrowRight size={16} /></Button></div>
-            <p className="center-hint">There are no wrong answers. The examiner's opinion is final. (Mostly.)</p>
+            <p className="center-hint">There are no wrong answers. The examiner&apos;s opinion is final. (Mostly.)</p>
           </motion.section>
         )}
 
@@ -286,7 +286,7 @@ export default function Home() {
               <div className="report-row"><span>Observed symptoms</span><b>Random smiles · fond memories · hopeful thoughts</b></div>
               <div className="report-row"><span>Examiner</span><b>Senior</b></div>
               <div className="report-row"><span>Overall assessment</span><b className="pink-text">Genuinely sweet. Slightly mysterious.</b></div>
-              <div className="report-note"><Sparkles size={18} /><p>Some feelings don't need a complicated explanation. Sometimes, it's enough to know that someone makes your world a little brighter.</p></div>
+              <div className="report-note"><Sparkles size={18} /><p>Some feelings don&apos;t need a complicated explanation. Sometimes, it&apos;s enough to know that someone makes your world a little brighter.</p></div>
               <div className="report-recommendation"><span>RECOMMENDATION</span><p>No medication prescribed. Continue collecting reasons to smile. Keep being wonderfully you.</p></div>
               <div className="prescription-card">
                 <span>THE FINAL PRESCRIPTION</span>
@@ -319,7 +319,7 @@ export default function Home() {
                 <div className="letter-body">
                   {letterParagraphs.map((paragraph, i) => <motion.p key={i} initial={reduceMotion ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: reduceMotion ? 0 : i * 0.13, duration: 0.45 }}>{paragraph}</motion.p>)}
                 </div>
-                <div className="letter-signoff"><p>Keep smiling, Senior. The world looks a little brighter that way. 🌸</p><span>With a little extra affection,</span><b>Someone who's really glad they met you. ❤️ <Heart size={15} fill="currentColor" /></b></div>
+                <div className="letter-signoff"><p>Keep smiling, Senior. The world looks a little brighter that way. 🌸</p><span>With a little extra affection,</span><b>Someone who&apos;s really glad they met you. ❤️ <Heart size={15} fill="currentColor" /></b></div>
                 <div className="letter-postscript"><span>✦ A FINAL OBSERVATION ✦</span><p>According to the highly questionable research conducted at Cupidity Center, you may be responsible for a suspicious number of smiles. The evidence is still under investigation. 🤭🔍</p></div>
                 <div className="letter-bottom"><span>CUPIDITY CENTER · CASE 001</span><span>MADE WITH A SMILE <Heart size={11} fill="currentColor" /></span></div>
                 <div className="letter-actions"><Button onClick={() => setScene("ending")}>One last observation <ArrowRight size={15} /></Button></div>
@@ -335,7 +335,7 @@ export default function Home() {
             <h2>Some things are<br /><em>better left as smiles.</em></h2>
             <div className="ending-heart"><Heart size={40} strokeWidth={1.2} /></div>
             <p className="ending-copy">No grand conclusion. No expectations. Just a little story, a genuine feeling, and a wish that life treats you kindly.</p>
-            <p className="ending-last">Keep being you, Senior. That's already pretty wonderful. 💗</p>
+            <p className="ending-last">Keep being you, Senior. That&apos;s already pretty wonderful. 💗</p>
             <div className="ending-stamp">CASE CLOSED <Heart size={13} fill="currentColor" /></div>
             <button className="restart-button" onClick={() => { setScene("intro"); setCompleted([]); setActiveTest(null); setAnswer(null); setLetterOpen(false); setPulseCount(0); }}> <ArrowLeft size={14} /> Revisit the case</button>
           </motion.section>
@@ -344,7 +344,7 @@ export default function Home() {
 
       <footer className="site-footer">
         <span>© CUPIDITY CENTER <i>·</i> AN UNOFFICIAL INVESTIGATION</span>
-        <span>DESIGNED WITH <Heart size={11} fill="currentColor" /> & CURIOSITY</span>
+        <span>DESIGNED WITH <Heart size={11} fill="currentColor" /> &amp; CURIOSITY</span>
         <button className="secret-surprise" onClick={() => setSurpriseOpen(true)} aria-label="Open a tiny surprise"><Star size={12}/></button>
       </footer>
       <AnimatePresence>
